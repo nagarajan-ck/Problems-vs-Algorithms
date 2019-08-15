@@ -1,0 +1,2 @@
+The code uses O(logn) time to find the square root as it uses binary search to find out the square root. The amount of numbers to search decreses 2 times at every step.
+Space complexity is O(1) as no data structures are used and constant memory is used for every input
