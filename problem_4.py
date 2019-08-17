@@ -9,15 +9,16 @@ def sort_012(input_list):
     	if(input_list[start]==0):    		
     		if(start==i):    			
     			i+=1
-    		start+=1
-    		
+    		start+=1    		
     		continue
+    		
     	if(input_list[end]==2):
     		end-=1
     		continue
     	
     	if(i>end or start>end):
     		break
+    		
     	if(input_list[i]==0):   		
     		input_list[i],input_list[start] = input_list[start],input_list[i]
     		if(input_list[i]!=0):
@@ -35,16 +36,21 @@ def sort_012(input_list):
     				start+=1    		
     			i+=1
     		end-=1
+    		
     	else:
     		i+=1
+    		
     return input_list
-    
 
+
+print(sort_012([2, 1, 2, 0, 0, 2, 1, 0, 1, 0, 0, 2, 2, 2, 1, 2, 0, 0, 0, 2, 1, 0, 2, 0, 0, 1]))
 #prints [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2]
-print(sort_012([2, 1, 2, 0, 0, 2, 1, 0, 1, 0, 0, 2, 2, 2, 1, 2, 0, 0, 0, 2, 1, 0, 2, 0, 0, 1])) 
+ 
 
 #Empty list input
-print(sort_012([])) #prints Empty input list 
+print(sort_012([]))
+#prints Empty input list
+
 
 #already sorted input
 print(sort_012([0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2]))
