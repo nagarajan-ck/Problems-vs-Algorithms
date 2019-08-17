@@ -1,0 +1,2 @@
+The time complexity is O(n) where n is the size of list, since the list is traveresed only once.
+Space complexity is O(1) since we did not need any extra arrays, in place sort.
