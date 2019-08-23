@@ -1,0 +1,2 @@
+Time complexity for the code is O(mn) where m is the length of each word and n is the depth of the trie.
+Space complexity is O(n) where n is the size of the list of suffix array.

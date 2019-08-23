@@ -46,46 +46,27 @@ class TrieNode:
     def suffixes(self, suffix = ''):
         ## Recursive function that collects the suffix for
         ## all complete words below this point
-
-
         current_node=self.children
-        # print("suffix="+suffix)
         for word in suffix:
             current_node=current_node[word].children
 
         tries=current_node.keys()
-        tries=list(tries) #['a','i']
-        # print(suffix)
-        # print(tries)
-        if(len(tries)==0):
+        tries=list(tries)
 
+        if(len(tries)==0):
             return suffix
 
-
         for node in tries:
-            # print(suffix)
-
-
-
-
-            #print("suffix "+suffix)
-
-            # print(self.list_of_suffix)
-            # print(current_node[node].children,current_node[node].is_word)
             if(current_node[node].is_word):
                 self.list_of_suffix.append(suffix+node)
             self.suffixes(suffix+node)
-            # suffix=''
 
-
-
-        # print(self.list_of_suffix)
         return self.list_of_suffix
+
 
 
 def getSuffix(MyTrie,suffix):
     prefixNode = MyTrie.find(suffix)
-
     if(prefixNode):
         return prefixNode.suffixes()
     return prefixNode
@@ -101,7 +82,9 @@ wordList = [
 for word in wordList:
         MyTrie.insert(word)
 
+print(getSuffix(MyTrie,'f')) #prints ['actory', 'un', 'unction'] as the suffixes for 'f'
 
-print(getSuffix(MyTrie,'f'))
-print(getSuffix(MyTrie,'s'))
-print(getSuffix(MyTrie,''))
+print(getSuffix(MyTrie,'s')) #prints False as there are no suffixes for 's'
+
+print(getSuffix(MyTrie,'')) #prints ['factory', 'fun', 'function', 'ant', 'anthology', 'antonym', 'antagonist', 'trie', 'tripod', 'trigonometry', 'trigger']
+#the complete array is printed for an empty character
