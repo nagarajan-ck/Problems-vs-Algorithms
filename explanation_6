@@ -1,0 +1,2 @@
+The code runs in O(n) time where n is the number of elements in the input list.
+Space complexity is O(1) as we are not creating any seperate data structures.
