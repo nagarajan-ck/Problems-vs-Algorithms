@@ -3,17 +3,6 @@ from IPython.display import display
 from ipywidgets import interact
 
 
-## Represents a single node in the Trie
-class TrieNode:
-    def __init__(self):
-        ## Initialize this node in the Trie
-        self.is_word = False
-        self.children = {}
-
-    def insert(self, char):
-        if(char not in self.children):
-            self.children[char]=TrieNode()
-        ## Add a child node in this Trie
 
 ## The Trie itself containing the root node and insert/find functions
 class Trie:
@@ -38,7 +27,6 @@ class Trie:
             if(char not in current_node.children):
                 return False
             current_node=current_node.children[char]
-        #print("ans="+current_node)
         return current_node
 
 
@@ -95,7 +83,12 @@ class TrieNode:
         return self.list_of_suffix
 
 
+def getSuffix(MyTrie,suffix):
+    prefixNode = MyTrie.find(suffix)
 
+    if(prefixNode):
+        return prefixNode.suffixes()
+    return prefixNode
 
 
 
@@ -109,6 +102,6 @@ for word in wordList:
         MyTrie.insert(word)
 
 
-
-prefixNode = MyTrie.find('')
-print(prefixNode.suffixes())
+print(getSuffix(MyTrie,'f'))
+print(getSuffix(MyTrie,'s'))
+print(getSuffix(MyTrie,''))
