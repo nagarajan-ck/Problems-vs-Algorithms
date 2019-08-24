@@ -1,0 +1,2 @@
+The time complexity of the code is O(n) where n is the number of paths in the url
+Space complexity is O(n) where n is the number of paths in the url, as we pass the paths as an array.
